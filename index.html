@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SKYFOLD</title>
+<meta name="description" content="A paper airplane rail-shooter. Tilt your phone to dodge obstacles racing toward you.">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0a0221">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=20261113b">
+</head>
+<body>
+
+<canvas id="scene"></canvas>
+
+<div id="hud" class="hidden">
+  <div id="hud-level">LV 1</div>
+  <div id="hud-time">0:00.0</div>
+  <div id="hud-best"></div>
+  <div id="hud-progress"><div id="hud-progress-fill"></div></div>
+  <div id="hud-boost" class="hidden">BOOST!</div>
+</div>
+
+<pre id="debug-readout" class="hidden"></pre>
+<div id="debug-levels" class="hidden">
+  <button data-level="1">1</button><button data-level="2">2</button><button data-level="3">3</button><button data-level="4">4</button><button data-level="5">5</button>
+</div>
+
+<div id="rotate-overlay" class="overlay">
+  <div class="overlay-inner">
+    <div class="rotate-icon">&#8635;</div>
+    <p>Rotate your device to landscape</p>
+  </div>
+</div>
+
+<div id="title-screen" class="overlay">
+  <div class="overlay-inner">
+    <h1 class="logo">SKYFOLD</h1>
+    <p class="tagline">tilt to fly &middot; dodge the furniture</p>
+    <div id="best-time-display" class="best-time hidden">BEST TIME <span id="best-time-value"></span></div>
+    <button id="start-btn" class="arcade-btn">TAP TO START</button>
+    <label id="invert-toggle" class="invert-toggle">
+      <input type="checkbox" id="invert-checkbox"> invert tilt
+    </label>
+    <p id="insecure-warning" class="warning hidden">
+      Tilt controls need a secure (https) connection. Open this page via its
+      https:// tunnel URL, not a plain LAN address.
+    </p>
+    <p id="motion-denied-warning" class="warning hidden">
+      Motion access was denied &mdash; falling back to touch-drag controls.
+    </p>
+  </div>
+</div>
+
+<div id="calibrate-screen" class="overlay hidden">
+  <div class="overlay-inner">
+    <p class="calibrate-msg">Hold your phone level&hellip;</p>
+    <div id="calibrate-count">3</div>
+  </div>
+</div>
+
+<div id="crash-screen" class="overlay hidden">
+  <div class="overlay-inner">
+    <h2 class="crash-title">CRASHED</h2>
+    <p id="crash-progress"></p>
+    <button class="arcade-btn crash-retry-btn">TAP TO RETRY</button>
+  </div>
+</div>
+
+<div id="finish-screen" class="overlay hidden">
+  <div class="overlay-inner">
+    <h2 class="finish-title">FINISH!</h2>
+    <div id="finish-time"></div>
+    <div id="finish-best" class="hidden">NEW BEST TIME!</div>
+    <button class="arcade-btn finish-next-btn">NEXT LEVEL</button>
+    <button class="arcade-btn finish-retry-btn">REPLAY LEVEL</button>
+  </div>
+</div>
+
+<script type="module" src="js/main.js?v=20261113b"></script>
+</body>
+</html>

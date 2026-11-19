@@ -1,0 +1,15 @@
+[Unit]
+Description=SKYFOLD Flying Game Web Server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi4
+WorkingDirectory=/home/pi4/flying-game
+ExecStart=/usr/bin/python3 /home/pi4/flying-game/deploy/server.py 8082
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
