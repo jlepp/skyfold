@@ -104,3 +104,7 @@ To upgrade Three.js, download `three.module.js` and `three.core.js` from the
 `build/` folder of the new release (e.g. via the `three` npm package), replace
 both files in `vendor/` (they must stay in the same folder), and update the
 version above. Confirm with `grep "const REVISION" vendor/three.core.js`.
+
+## Hosting
+
+I run this on a Raspberry Pi with a Cloudflare Tunnel carefully exposing it to the Internet at [skyfold.lepp.ca](https://skyfold.lepp.ca). Other simple hosting options should work fine.
